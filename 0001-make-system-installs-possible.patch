@@ -1,0 +1,41 @@
+From aca17b17c7e212ddbf05405b0edea66300180430 Mon Sep 17 00:00:00 2001
+From: Karol Herbst <kherbst@redhat.com>
+Date: Wed, 12 Jun 2019 11:56:48 +0200
+Subject: [PATCH] make system installs possible
+
+---
+ CMakeLists.txt                   | 1 +
+ framework/common/tcuResource.cpp | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f0985f2e1..f121c198f 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -118,6 +118,7 @@ message(STATUS "DEQP_PLATFORM_LIBRARIES = ${DEQP_PLATFORM_LIBRARIES}")
+ 
+ # Defines
+ add_definitions(-DDEQP_TARGET_NAME="${DEQP_TARGET_NAME}")
++add_definitions(-DCTS_DATADIR="${SHARE_INSTALL_PREFIX}/VK-GL-CTS/")
+ 
+ # Entry points loaded directly by linking to libGL*?
+ if (DEFINED DEQP_GLES2_LIBRARIES)
+diff --git a/framework/common/tcuResource.cpp b/framework/common/tcuResource.cpp
+index 5ecc5976a..8227c0946 100644
+--- a/framework/common/tcuResource.cpp
++++ b/framework/common/tcuResource.cpp
+@@ -46,9 +46,9 @@ Resource* DirArchive::getResource (const char* name) const
+ }
+ 
+ FileResource::FileResource (const char* filename)
+-	: Resource(std::string(filename))
++	: Resource(std::string(CTS_DATADIR) + filename)
+ {
+-	m_file = fopen(filename, "rb");
++	m_file = fopen((std::string(CTS_DATADIR) + filename).c_str(), "rb");
+ 	if (!m_file)
+ 		throw ResourceError("Failed to open file", filename, __FILE__, __LINE__);
+ }
+-- 
+2.21.0
+
