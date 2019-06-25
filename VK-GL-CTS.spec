@@ -112,3 +112,5 @@ cp -r external/vulkancts/data/vulkan %{buildroot}/%{_datadir}/%{name}/
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Jun 11 2019 Karol Herbst <kherbst@redhat.com> - 1.1.4.1-0
+- Initial RPM release
