@@ -1,6 +1,6 @@
 Name:           VK-GL-CTS
 Version:        1.1.4.1
-Release:        0
+Release:        100
 Summary:        Official Khronos CTS for OpenGL and Vulkan
 
 # check PACKAGES inside external/fetch_sources.py
@@ -93,6 +93,8 @@ mkdir -p %{buildroot}/%{_datadir}/%{name}/gl_cts/data
 mkdir -p %{buildroot}/%{_datadir}/%{name}/mustpass/vulkan
 
 pushd build
+  cp executor/testlog-to-csv %{buildroot}/%{_bindir}/
+  cp executor/testlog-to-xml %{buildroot}/%{_bindir}/
   cp external/openglcts/modules/glcts %{buildroot}/%{_bindir}/
   cp external/vulkancts/modules/vulkan/deqp-vk %{buildroot}/%{_bindir}/
 popd
@@ -105,12 +107,17 @@ cp -r external/vulkancts/data/vulkan %{buildroot}/%{_datadir}/%{name}/
 
 %files
 %license LICENSE
-%defattr(-, root, root, -)
 %dir %{_datadir}/%{name}/
-%{_bindir}/glcts
 %{_bindir}/deqp-vk
+%{_bindir}/glcts
+%{_bindir}/testlog-to-csv
+%{_bindir}/testlog-to-xml
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Jun 25 2019 Karol Herbst <kherbst@redhat.com> - 1.1.4.1-100
+- Add testlog conversion executeables
+- Fix file permissions
+
 * Tue Jun 11 2019 Karol Herbst <kherbst@redhat.com> - 1.1.4.1-0
 - Initial RPM release
