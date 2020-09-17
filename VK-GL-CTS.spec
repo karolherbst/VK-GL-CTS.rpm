@@ -5,12 +5,9 @@ Summary:        Official Khronos CTS for OpenGL and Vulkan
 
 # check PACKAGES inside external/fetch_sources.py
 %global AMBER_VER d26ee22dd7faab1845a531d410f7ec1db407402a
-# 137e071ca42f2c9e378d974c399a89504804a1e5
-%global GLSLANG_VER 7.11.3188
-# c4f8f65792d4bf2657ca751904c511bbcf2ac77b
-%global SPIRV_HEADERS_VER 1.4.1
-# f2803c4a7f58237aa0dd9d39ccc6dea362527b96
-%global SPIRV_TOOLS_VER v2019.3
+%global GLSLANG_VER 137e071ca42f2c9e378d974c399a89504804a1e5
+%global SPIRV_HEADERS_VER c4f8f65792d4bf2657ca751904c511bbcf2ac77b
+%global SPIRV_TOOLS_VER f2803c4a7f58237aa0dd9d39ccc6dea362527b96
 
 %global AMBER_SRC amber-%{AMBER_VER}.tar.gz
 %global GLSLANG_SRC glslang-%{GLSLANG_VER}.tar.gz
