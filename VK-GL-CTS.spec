@@ -1,13 +1,13 @@
 Name:           VK-GL-CTS
-Version:        1.1.4.1
+Version:        1.2.3.3
 Release:        100
 Summary:        Official Khronos CTS for OpenGL and Vulkan
 
 # check PACKAGES inside external/fetch_sources.py
-%global AMBER_VER d26ee22dd7faab1845a531d410f7ec1db407402a
-%global GLSLANG_VER 137e071ca42f2c9e378d974c399a89504804a1e5
-%global SPIRV_HEADERS_VER c4f8f65792d4bf2657ca751904c511bbcf2ac77b
-%global SPIRV_TOOLS_VER f2803c4a7f58237aa0dd9d39ccc6dea362527b96
+%global AMBER_VER a40bef4dba98d2d80b48e5a940d8574fbfceb197
+%global GLSLANG_VER b5f003d7a3ece37db45578a8a3140b370036fc64
+%global SPIRV_HEADERS_VER f8bf11a0253a32375c32cad92c841237b96696c0
+%global SPIRV_TOOLS_VER d2b486219495594f2e5d0e8d457fc234a3460b3b
 
 %global AMBER_SRC amber-%{AMBER_VER}.tar.gz
 %global GLSLANG_SRC glslang-%{GLSLANG_VER}.tar.gz
